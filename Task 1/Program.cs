@@ -1,6 +1,11 @@
 ﻿//Написать программу, упорядочивания по убыванию элементы каждой строки двумерной массива.
 
-int [,] nums = new int [2, 3];
+Console.WriteLine($"Задайте количество строк (м)");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"Задайте количество столбцов (n)");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+int [,] nums = new int [m, n];
 FillArr(nums);
 PrintArr(nums);
 int [] row = new int [nums.GetLength(1)];
@@ -13,7 +18,6 @@ for(int i = 0; i<nums.GetLength(0); i++) {
         nums [i,j] = row [j];
     }
 }
-
 PrintArr(nums);
 
 void BubbleSort (int [] inArray) {
