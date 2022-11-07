@@ -4,19 +4,7 @@ int [,] nums = new int [4, 2];
 FillArr(nums);
 PrintArr(nums);
 int minRowSum = FirstRow(nums);
-int indexMinRow = 1;
-for(int i = 1; i<nums.GetLength(0); i++) {
-    int rowSum = 0;
-    for(int j = 0; j<nums.GetLength(1); j++) {
-       rowSum += nums[i,j];
-    }
-    if(minRowSum>rowSum) {
-        minRowSum=rowSum;
-        indexMinRow += i;
-    } 
-}
-Console.WriteLine($"Сумма элементов "+minRowSum);
-
+minRowSum = MinSum(minRowSum, nums);
 for(int i = 0; i<nums.GetLength(0); i++) {
     int rowSum = 0;
     for(int j = 0; j<nums.GetLength(1); j++) {
@@ -28,6 +16,23 @@ for(int i = 0; i<nums.GetLength(0); i++) {
         Console.WriteLine($"Строка с наименьшей суммой элементов № "+  index);
         
     } 
+}
+
+int MinSum(int m, int[,] n){
+    int result = 0;
+    for(int i = 1; i<n.GetLength(0); i++) {
+        int rowSum = 0;
+        for(int j = 0; j<n.GetLength(1); j++) {
+            rowSum += n[i,j];
+        }
+        if(m>rowSum) {
+            m=rowSum;
+            
+        } 
+    }
+    result = m;
+    Console.WriteLine($"Сумма элементов "+m);
+    return result;
 }
 
 int FirstRow(int [,] num) {
