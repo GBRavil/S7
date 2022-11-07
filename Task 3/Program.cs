@@ -5,7 +5,6 @@ FillArr(nums);
 PrintArr(nums);
 int minRowSum = FirstRow(nums);
 int indexMinRow = 1;
-
 for(int i = 1; i<nums.GetLength(0); i++) {
     int rowSum = 0;
     for(int j = 0; j<nums.GetLength(1); j++) {
@@ -16,9 +15,20 @@ for(int i = 1; i<nums.GetLength(0); i++) {
         indexMinRow += i;
     } 
 }
-       
-Console.WriteLine($"Строка с наименьшей суммой элементов № "+  indexMinRow);   
 Console.WriteLine($"Сумма элементов "+minRowSum);
+
+for(int i = 0; i<nums.GetLength(0); i++) {
+    int rowSum = 0;
+    for(int j = 0; j<nums.GetLength(1); j++) {
+       rowSum += nums[i,j];
+    }
+    if(minRowSum==rowSum) {
+        int index = 0;
+        index = i+1;
+        Console.WriteLine($"Строка с наименьшей суммой элементов № "+  index);
+        
+    } 
+}
 
 int FirstRow(int [,] num) {
     int result = 0; 
